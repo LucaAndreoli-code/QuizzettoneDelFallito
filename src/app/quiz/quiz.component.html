@@ -1,0 +1,17 @@
+<div>
+  <div *ngIf="quizzettone.length > i; else noMoreQuestions">
+    <div>
+      <h2>{{quizzettone[i].domanda}}</h2><br>
+      <p (click)="onSelect(quizzettone[i].risp1)">{{quizzettone[i].risp1}}</p>
+      <p (click)="onSelect(quizzettone[i].risp2)">{{quizzettone[i].risp2}}</p><br>
+      <p (click)="onSelect(quizzettone[i].risp3)">{{quizzettone[i].risp3}}</p>
+      <p (click)="onSelect(quizzettone[i].risp4)">{{quizzettone[i].risp4}}</p><br>
+      <button (click)="checkAnswer()">Controlla la tua risposta</button>
+    </div>
+  </div>
+  <h2>{{message}}</h2>
+  <ng-template #noMoreQuestions>
+    <h1>Domande Finite</h1>
+    <h1>Punti totali su {{quizzettone.length}}: {{points}}</h1>
+  </ng-template>
+</div>
