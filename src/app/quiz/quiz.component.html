@@ -2,13 +2,17 @@
   <div *ngIf="quizzettone.length > i; else noMoreQuestions">
     <div>
       <h2>{{quizzettone[i].domanda}}</h2><br>
-      <p (click)="onSelect(quizzettone[i].risp1)">{{quizzettone[i].risp1}}</p>
-      <p (click)="onSelect(quizzettone[i].risp2)">{{quizzettone[i].risp2}}</p><br>
-      <p (click)="onSelect(quizzettone[i].risp3)">{{quizzettone[i].risp3}}</p>
-      <p (click)="onSelect(quizzettone[i].risp4)">{{quizzettone[i].risp4}}</p><br>
-      <button (click)="checkAnswer()">Controlla la tua risposta</button>
+      <p class="reply" (click)="onSelect(quizzettone[i].risp1)">{{quizzettone[i].risp1}}</p>
+      <p class="reply" (click)="onSelect(quizzettone[i].risp2)">{{quizzettone[i].risp2}}</p><br>
+      <p class="reply" (click)="onSelect(quizzettone[i].risp3)">{{quizzettone[i].risp3}}</p>
+      <p class="reply" (click)="onSelect(quizzettone[i].risp4)">{{quizzettone[i].risp4}}</p><br>
+      <div>
+        <button (click)="continue()">Avanti</button>
+        <h1>Una volta selezionata la risposta non potrai più <br> tornare indietro per cambiarla quindi scegli attentamente!!!</h1>
+      </div>
     </div>
   </div>
+  <h2>{{answer}}</h2>
   <h2>{{message}}</h2>
   <ng-template #noMoreQuestions>
     <h1>Domande Finite</h1>
