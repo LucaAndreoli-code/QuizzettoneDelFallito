@@ -7,14 +7,15 @@
       <p class="reply" (click)="onSelect(quizzettone[i].risp3)">{{quizzettone[i].risp3}}</p>
       <p class="reply" (click)="onSelect(quizzettone[i].risp4)">{{quizzettone[i].risp4}}</p><br>
       <div>
-        <button (click)="continue()">Avanti</button>
-        <h1>Una volta selezionata la risposta non potrai più <br> tornare indietro per cambiarla quindi scegli attentamente!!!</h1>
+        <button (click)="continue()" >Avanti</button>
+        <button (click)="back()">Indietro</button>
       </div>
     </div>
+    <h2>{{answer}}</h2>
   </div>
-  <h2>{{answer}}</h2>
-  <h2>{{message}}</h2>
+  <!-- <h2>{{message}}</h2> -->
   <ng-template #noMoreQuestions>
+    {{checkAnswer()}}
     <h1>Domande Finite</h1>
     <h1>Punti totali su {{quizzettone.length}}: {{points}}</h1>
   </ng-template>

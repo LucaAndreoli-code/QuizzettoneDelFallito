@@ -13,8 +13,8 @@ export class QuizComponent implements OnInit {
   answer: string
   risposte: string[] = []
   i: number = 0
-  message: string
   points: number = 0
+  //message: string
 
   onSelect(risposta: string) {
     this.answer = risposta
@@ -25,16 +25,24 @@ export class QuizComponent implements OnInit {
 
   continue() {
     if (this.answer == this.quizzettone[this.i].rispCorretta) {
-      this.message = "RISPOSTA CORRETTA"
+      //this.message = "RISPOSTA CORRETTA"
       this.i += 1
-      this.points += 1
-    } else this.message = "RISPOSTA SBAGLIATA", this.i += 1
+    } else /*this.message = "RISPOSTA SBAGLIATA",*/ this.i += 1
   }
 
   back() {
     if (this.i == 0) {
       this.i = 0
     } else this.i -= 1
+  }
+
+  checkAnswer(){
+    let j: number;
+    for(j = 0; j < this.risposte.length; j++){
+      if(this.risposte[j] == this.quizzettone[j].rispCorretta){
+        this.points += 1
+      }
+    }
   }
 
   constructor(private _quizService: QuizService) { }
