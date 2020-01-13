@@ -11,13 +11,11 @@ export class QuizComponent implements OnInit {
 
   quizzettone: Quiz[] = []
   risposte: string[] = []
-  answer: string
   i: number = 0
   points: number = 0
 
-  onSelect(risposta: string) {
-    this.answer = risposta
-    this.risposte[this.i] = risposta
+  onSelect(answer: string) {
+    this.risposte[this.i] = answer
   }
 
   continue() {
