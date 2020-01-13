@@ -1,19 +1,21 @@
 <div>
   <div *ngIf="quizzettone.length > i; else noMoreQuestions">
     <div>
-      <h2>{{quizzettone[i].domanda}}</h2><br>
-      <p class="reply" (click)="onSelect(quizzettone[i].risp1)">{{quizzettone[i].risp1}}</p>
-      <p class="reply" (click)="onSelect(quizzettone[i].risp2)">{{quizzettone[i].risp2}}</p><br>
-      <p class="reply" (click)="onSelect(quizzettone[i].risp3)">{{quizzettone[i].risp3}}</p>
-      <p class="reply" (click)="onSelect(quizzettone[i].risp4)">{{quizzettone[i].risp4}}</p><br>
+      <h1>{{quizzettone[i].domanda}}</h1><br>
       <div>
-        <button (click)="continue()" >Avanti</button>
+        <p>
+          <a class="reply" (click)="onSelect(quizzettone[i].risp1)" [class.selected] = "quizzettone[i].risp1 === answer">{{quizzettone[i].risp1}}</a>
+          <a class="reply" (click)="onSelect(quizzettone[i].risp2)" [class.selected] = "quizzettone[i].risp2 === answer">{{quizzettone[i].risp2}}</a><br>
+          <a class="reply" (click)="onSelect(quizzettone[i].risp3)" [class.selected] = "quizzettone[i].risp3 === answer">{{quizzettone[i].risp3}}</a>
+          <a class="reply" (click)="onSelect(quizzettone[i].risp4)" [class.selected] = "quizzettone[i].risp4 === answer">{{quizzettone[i].risp4}}</a><br>
+        </p>
+      </div>
+      <div>
+        <button (click)="continue()">Avanti</button>
         <button (click)="back()">Indietro</button>
       </div>
     </div>
-    <h2>{{answer}}</h2>
   </div>
-  <!-- <h2>{{message}}</h2> -->
   <ng-template #noMoreQuestions>
     {{checkAnswer()}}
     <h1>Domande Finite</h1>

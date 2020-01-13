@@ -3,7 +3,7 @@ h1, h2, h3, h4{
     font-weight: normal;
     font-family: monospace;
 }
-p{
+a{
     text-align: center;
     font-weight: normal;
     font-family: monospace;
@@ -18,10 +18,16 @@ p{
     border: none;
     transition: all 0.4s ease 0s;
     width: 38%;
-    margin-left: 30%;
-    margin-right: 30%;
+    margin: 20px;
 }
-p:hover{
+
+div a.reply{
+    width: 300px; 
+    margin: 5px;
+    text-align: center;
+}
+
+a:hover{
     background: #434343;
     letter-spacing: 1px;
     -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
@@ -29,6 +35,9 @@ p:hover{
     box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
     transition: all 0.4s ease 0s;
 } 
+a.selected{
+    background-color: #434343;
+}
 
 li{
     float:left;
@@ -59,4 +68,8 @@ button{
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
+}
+
+p{
+    text-align: center;
 }

@@ -10,24 +10,19 @@ import { QuizService } from '../quiz.service';
 export class QuizComponent implements OnInit {
 
   quizzettone: Quiz[] = []
-  answer: string
   risposte: string[] = []
+  answer: string
   i: number = 0
   points: number = 0
-  //message: string
 
   onSelect(risposta: string) {
     this.answer = risposta
-    if (this.risposte[this.i] != this.answer) {
-      this.risposte[this.i] = this.answer
-    } else this.risposte.push(this.answer)
+    this.risposte[this.i] = risposta
   }
 
   continue() {
-    if (this.answer == this.quizzettone[this.i].rispCorretta) {
-      //this.message = "RISPOSTA CORRETTA"
-      this.i += 1
-    } else /*this.message = "RISPOSTA SBAGLIATA",*/ this.i += 1
+    this.i += 1
+    console.log(this.risposte)
   }
 
   back() {
@@ -53,6 +48,7 @@ export class QuizComponent implements OnInit {
         this.quizzettone = quizList;
       }
     )
+    this.risposte.length = this.quizzettone.length
   }
 
 }
